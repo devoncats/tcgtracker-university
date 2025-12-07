@@ -29,5 +29,10 @@ namespace TCGTracker.UI
             CollectionDataGridView.DataSource = collection;
             CollectionDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
+
+        private void AddCardButton_Click(object sender, EventArgs e)
+        {
+            var AddCardForm = new AddCardForm(_username);
+        }
     }
 }

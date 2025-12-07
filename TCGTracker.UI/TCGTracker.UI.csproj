@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCardForm.Designer.cs">
+      <DependentUpon>AddCardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteCardForm.Designer.cs">
+      <DependentUpon>DeleteCardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +72,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddCardForm.resx">
+      <DependentUpon>AddCardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteCardForm.resx">
+      <DependentUpon>DeleteCardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
