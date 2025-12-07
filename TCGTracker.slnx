@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="TCGTracker.Core/TCGTracker.Core.csproj" Id="d3db88f3-86fa-4342-a2d3-b00009b84c4e" />
+  <Project Path="TCGTracker.UI/TCGTracker.UI.csproj" Id="eb2549f7-abbd-4d6f-a7ff-81d209825ca5" />
+</Solution>
