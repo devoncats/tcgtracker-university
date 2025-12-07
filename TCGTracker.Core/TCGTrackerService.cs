@@ -39,10 +39,7 @@ namespace TCGTracker.Core
 
         public void DeleteCollectionByCard(string username, int id)
         {
-            var collection = _db.Collections.FirstOrDefault(c => c.Username == username && c.CardId == id);
-
-            if (collection == null)
-                return;
+            var collection = _db.Collections.FirstOrDefault(c => c.Username == username && c.CardId == id) ?? throw new KeyNotFoundException("Card not found");
 
             _db.Collections.DeleteOnSubmit(collection);
             _db.SubmitChanges();
