@@ -35,5 +35,11 @@ namespace TCGTracker.UI
             var addCardForm = new AddCardForm(_username);
             addCardForm.ShowDialog();
         }
+
+        private void DeleteCardButton_Click(object sender, EventArgs e)
+        {
+            var deleteCardForm = new DeleteCardForm(_username);
+            deleteCardForm.ShowDialog();
+        }
     }
 }

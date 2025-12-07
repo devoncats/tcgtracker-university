@@ -26,15 +26,13 @@ namespace TCGTracker.UI
 
         private void AddCardButton_Click(object sender, EventArgs e)
         {
-            // remove unused variables
-            string cardId = IDTextBox.Text;
             string cardName = NameTextBox.Text;
             string cardSet = SetTextBox.Text;
             string cardNumber = NumberTextBox.Text;
             string cardRarity = RarityTextBox.Text;
             string cardCondition = ConditionTextBox.Text;
 
-            if(string.IsNullOrEmpty(cardId) || string.IsNullOrEmpty(cardName) || string.IsNullOrEmpty(cardSet) || string.IsNullOrEmpty(cardNumber) || string.IsNullOrEmpty(cardRarity) || string.IsNullOrEmpty(cardCondition))
+            if(string.IsNullOrEmpty(cardName) || string.IsNullOrEmpty(cardSet) || string.IsNullOrEmpty(cardNumber) || string.IsNullOrEmpty(cardRarity) || string.IsNullOrEmpty(cardCondition))
             {
                 MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -58,8 +56,16 @@ namespace TCGTracker.UI
                 CreatedAt = DateTime.Now,
             };
 
-            // try catch
-            _service.CreateCard(card);
+            try
+            {
+                _service.CreateCard(card);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fail :c", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
 
             var collection = new Collection
             {
@@ -67,10 +73,19 @@ namespace TCGTracker.UI
                 Card = card,
             };
 
-            // try catch
-            _service.CreateCollection(collection);
+            try
+            {
+                _service.CreateCollection(collection);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fail :c", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            // close form on success and assign this.DialogResult = DialogResult.OK if nothing is broken
+            MessageBox.Show("Add Card successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

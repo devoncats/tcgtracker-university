@@ -30,6 +30,7 @@
         {
             this.CollectionDataGridView = new System.Windows.Forms.DataGridView();
             this.AddCardButton = new System.Windows.Forms.Button();
+            this.DeleteCardButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CollectionDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,11 +52,22 @@
             this.AddCardButton.UseVisualStyleBackColor = true;
             this.AddCardButton.Click += new System.EventHandler(this.AddCardButton_Click);
             // 
+            // DeleteCardButton
+            // 
+            this.DeleteCardButton.Location = new System.Drawing.Point(127, 444);
+            this.DeleteCardButton.Name = "DeleteCardButton";
+            this.DeleteCardButton.Size = new System.Drawing.Size(109, 31);
+            this.DeleteCardButton.TabIndex = 2;
+            this.DeleteCardButton.Text = "Delete Card";
+            this.DeleteCardButton.UseVisualStyleBackColor = true;
+            this.DeleteCardButton.Click += new System.EventHandler(this.DeleteCardButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 506);
+            this.Controls.Add(this.DeleteCardButton);
             this.Controls.Add(this.AddCardButton);
             this.Controls.Add(this.CollectionDataGridView);
             this.Name = "MainForm";
@@ -70,5 +82,6 @@
 
         private System.Windows.Forms.DataGridView CollectionDataGridView;
         private System.Windows.Forms.Button AddCardButton;
+        private System.Windows.Forms.Button DeleteCardButton;
     }
 }
