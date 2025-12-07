@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using System.Windows.Forms;
 using TCGTracker.Core;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace TCGTracker.UI
 {
@@ -35,12 +26,14 @@ namespace TCGTracker.UI
             if(string.IsNullOrEmpty(cardName) || string.IsNullOrEmpty(cardSet) || string.IsNullOrEmpty(cardNumber) || string.IsNullOrEmpty(cardRarity) || string.IsNullOrEmpty(cardCondition))
             {
                 MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.DialogResult = DialogResult.Cancel;
                 return;
             }
 
             if (!decimal.TryParse(PriceTextBox.Text, out decimal cardPrice))
             {
                 MessageBox.Show("Please enter a valid price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.DialogResult = DialogResult.Cancel;
                 return;
             }
             
@@ -60,10 +53,10 @@ namespace TCGTracker.UI
             {
                 _service.CreateCard(card);
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show("Fail :c", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show("An unexpected error occurred while creating the card.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.DialogResult = DialogResult.Cancel;
             }
             
 
@@ -77,13 +70,14 @@ namespace TCGTracker.UI
             {
                 _service.CreateCollection(collection);
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show("Fail :c", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show("An unexpected error occurred while creating the collection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.DialogResult = DialogResult.Cancel;
             }
 
             MessageBox.Show("Add Card successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

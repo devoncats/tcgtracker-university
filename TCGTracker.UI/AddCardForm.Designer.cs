@@ -153,7 +153,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(216, 209);
+            this.ClientSize = new System.Drawing.Size(209, 209);
             this.Controls.Add(this.AddCardButton);
             this.Controls.Add(this.ConditionTextBox);
             this.Controls.Add(this.PriceTextBox);

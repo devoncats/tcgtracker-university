@@ -23,7 +23,7 @@ namespace TCGTracker.UI
                 MessageBox.Show("Please enter both username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            
             try
             {
                 var user = _service.GetUserByUsername(username);
@@ -35,21 +35,18 @@ namespace TCGTracker.UI
                 }
 
                 MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.DialogResult = DialogResult.OK;
             }
             catch (KeyNotFoundException)
             {
                 MessageBox.Show("User not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if (this.DialogResult == DialogResult.OK)
-            {
-                this.Hide();
 
-                var mainForm = new MainForm(username);
-                mainForm.FormClosed += (s, e) => this.Close();
-                mainForm.Show();
-            }
+            this.Hide();
+
+            var mainForm = new MainForm(username);
+            mainForm.FormClosed += (s, e) => this.Close();
+            mainForm.Show();
         }
     }
 }
