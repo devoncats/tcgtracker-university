@@ -32,7 +32,8 @@ namespace TCGTracker.UI
 
         private void AddCardButton_Click(object sender, EventArgs e)
         {
-            var AddCardForm = new AddCardForm(_username);
+            var addCardForm = new AddCardForm(_username);
+            addCardForm.ShowDialog();
         }
     }
 }
