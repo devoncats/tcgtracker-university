@@ -68,7 +68,7 @@
             this.Controls.Add(this.IDTextBox);
             this.Controls.Add(this.CardIDLabel);
             this.Name = "DeleteCardForm";
-            this.Text = "DeleteCardForm";
+            this.Text = "Delete Card";
             this.ResumeLayout(false);
             this.PerformLayout();
 

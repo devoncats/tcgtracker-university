@@ -168,7 +168,7 @@
             this.Controls.Add(this.CardSetLabel);
             this.Controls.Add(this.CardNameLabel);
             this.Name = "AddCardForm";
-            this.Text = "AddCardForm";
+            this.Text = "Add Card";
             this.ResumeLayout(false);
             this.PerformLayout();
 

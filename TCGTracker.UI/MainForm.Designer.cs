@@ -71,7 +71,7 @@
             this.Controls.Add(this.AddCardButton);
             this.Controls.Add(this.CollectionDataGridView);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "TCG Tracker";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CollectionDataGridView)).EndInit();
             this.ResumeLayout(false);
