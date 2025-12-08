@@ -33,5 +33,16 @@ namespace TCGTracker.Core.Properties {
                 return ((string)(this["TCGTrackerDBConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=K\\SQLEXPRESS;Initial Catalog=TCGTrackerDB;Integrated Security=True;Tr" +
+            "ustServerCertificate=True")]
+        public string TCGTrackerDBConnectionString1 {
+            get {
+                return ((string)(this["TCGTrackerDBConnectionString1"]));
+            }
+        }
     }
 }
