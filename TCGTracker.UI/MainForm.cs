@@ -24,7 +24,23 @@ namespace TCGTracker.UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            var collection = _service.GetCollectionByUser(_username);
+            RefreshCollection();
+        }
+
+        private void RefreshCollection()
+        {
+            var collection = _service.GetCollectionByUser(_username)
+                .Where(c => c.Card != null)
+                .Select(c => new
+                {
+                    c.Card.CardId,
+                    c.Card.Name,
+                    c.Card.Set,
+                    c.Card.Number,
+                    c.Card.Rarity,
+                    c.Card.Price,
+                    c.Card.Condition,
+                }).ToList();
 
             CollectionDataGridView.DataSource = collection;
             CollectionDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -32,14 +48,24 @@ namespace TCGTracker.UI
 
         private void AddCardButton_Click(object sender, EventArgs e)
         {
-            var addCardForm = new AddCardForm(_username);
-            addCardForm.ShowDialog();
+            using (var addCardForm = new AddCardForm(_username))
+            {
+                if (addCardForm.ShowDialog() == DialogResult.OK)
+                {
+                    RefreshCollection();
+                }
+            }
         }
 
         private void DeleteCardButton_Click(object sender, EventArgs e)
         {
-            var deleteCardForm = new DeleteCardForm(_username);
-            deleteCardForm.ShowDialog();
+            using (var deleteCardForm = new DeleteCardForm(_username))
+            {
+                if (deleteCardForm.ShowDialog() == DialogResult.OK)
+                {
+                    RefreshCollection();
+                }
+            }
         }
     }
 }

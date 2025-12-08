@@ -42,17 +42,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TCGTrackerDB.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TCGTrackerDB.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="TCGTrackerDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TCGTrackerDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TCGTrackerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="TCGTrackerDB.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TCGTrackerDB.dbml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +73,17 @@
     </None>
     <None Include="TCGTrackerDB.dbml.layout">
       <DependentUpon>TCGTrackerDB.dbml</DependentUpon>
+    </None>
+    <None Include="TCGTrackerDBDataSet.xsc">
+      <DependentUpon>TCGTrackerDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TCGTrackerDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TCGTrackerDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TCGTrackerDBDataSet.xss">
+      <DependentUpon>TCGTrackerDBDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
